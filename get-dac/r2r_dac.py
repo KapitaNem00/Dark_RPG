@@ -5,9 +5,20 @@ GPIO.setmode(GPIO.BCM)
 leds = [22, 27, 17, 26, 25, 21, 20, 16]
 dynamic_range=3.3
 
-
-
 GPIO.setup(leds, GPIO.OUT)
+
+class R2R_DAC:
+    def __init__(self, gpio_bits, dynamic_range, verbose = False):
+        self.gpio_bits = gpio_bits
+        self.dynamic_range = dynamic_range
+        self.verbose = verbose
+        
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(self.gpio_bits, GPIO.OUT, initial = 0)
+
+def deinit(self):
+    GPIO.output(self.gpio_bits, 0)
+    GPIO.cleanup()
 
 def dec2bin(value):
     return [int(element) for element in bin(value)[2:].zfill(8)]
@@ -17,9 +28,10 @@ def number_to_dac(value):
 
 def voltage_to_number(voltage):
     if not (0.0 <= voltage <= dynamic_range):
+        print(f"Напряжение выходит за динамический диапазон ЦАП (0.00 - {dynamic_range:.2f} В)")
         print("Устанавлниваем 0.0 В")
         return 0
-    print(f"Напряжение выходит за динамический диапазон ЦАП (0.00 - {dynamic_range:.2f} В)")
+
     return int(voltage / dynamic_range * 255)
 
 try:
