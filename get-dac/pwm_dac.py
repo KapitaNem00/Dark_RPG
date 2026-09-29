@@ -9,7 +9,7 @@ class PWM_DAC:
         self.pwm_frequency = pwm_frequency
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.gpio_pin, GPIO.OUT, initial = 0)
-        self.pmw = GPIO.PMW(self.gpio_pin, self.pwm_frequency)
+        self.pmw = GPIO.PWM(self.gpio_pin, self.pwm_frequency)
 
     def deinit(self):
         GPIO.output(self.gpio_pin, 0)
