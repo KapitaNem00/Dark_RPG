@@ -14,11 +14,11 @@ class R2R_DAC:
         GPIO.output(self.gpio_bits, dcb)
 
     def set_voltage(self, voltage):
-        if not (0.0 <= self.voltage <= self.dynamic_range):
+        if not (0.0 <= voltage <= self.dynamic_range):
             print("Устанавлниваем 0.0 В")
             return 0
         print(f"Напряжение выходит за динамический диапазон ЦАП (0.00 - {self.dynamic_range:.2f} В)")
-        return int(self.voltage / self.dynamic_range * 255)
+        return int(voltage / self.dynamic_range * 255)
 
     def deinit(self):
         GPIO.output(self.gpio_bits, 0)
