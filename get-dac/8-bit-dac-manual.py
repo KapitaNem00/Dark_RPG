@@ -27,6 +27,7 @@ try:
         try:
             voltage = float(input("Введите напряжение в Вольтах: "))
             number = voltage_to_number(voltage)
+            print(number)
             number_to_dac(number)
 
         except ValueError:
