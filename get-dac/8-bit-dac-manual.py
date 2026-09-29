@@ -3,6 +3,7 @@ import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 
 leds = [22, 27, 17, 26, 25, 21, 20, 16]
+leds.reverse()
 dynamic_range=3.3
 
 
