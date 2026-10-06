@@ -8,7 +8,7 @@ sampling_frequency = 1000
 
 if __name__ == "__main__":
     try:
-        dac = pmw.PWM_DAC(12, 500, 3.290, True)
+        dac = pmw.PWM_DAC(12, 1000, 3.1, True)
         tm=0
         
         while True:
