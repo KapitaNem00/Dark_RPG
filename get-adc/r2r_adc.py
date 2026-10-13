@@ -39,7 +39,7 @@ if __name__ == "__main__":
         
         while True:
             try:
-                adc.sequential_counting_adc
+                print(adc.sequential_counting_adc, "\n")
 
             except ValueError:
                 print("Вы ввели не число. Попробуйте ещё раз\n")
