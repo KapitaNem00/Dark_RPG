@@ -9,3 +9,8 @@ def get_sin_wave_amplitude(freq, time):
 
 def wait_for_sampling_period(sampling_frequency):
     time.sleep(1/sampling_frequency)
+
+def get_tr_wave_amplitude(freq, time):
+    sn=numpy.sin(2*pi*time*freq)
+    asn=numpy.arcsin(sn)/pi+0.5
+    return asn
