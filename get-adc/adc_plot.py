@@ -17,7 +17,7 @@ if __name__ == "__main__":
         while True:
             try:
                 while(time.time()-st<3):
-                    voltage_values.append(adc.sequential_counting_adc())
+                    voltage_values.append(adcp.sequential_counting_adc())
                     time_values.append(time.time()-st)                
                 plot_voltage_vs_time(time_values, voltage_values, 0)
             except ValueError:
