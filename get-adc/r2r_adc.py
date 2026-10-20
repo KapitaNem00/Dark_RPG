@@ -36,11 +36,10 @@ class R2R_ADC:
 if __name__ == "__main__":
     try:
         adc = R2R_ADC(3.14, True)
-        adc.number_to_dac(100)
         
         while True:
             try:
-                print(GPIO.input(21), "\n")
+                print(adc.sequential_counting_adc(), "\n")
 
             except ValueError:
                 print("Вы ввели не число. Попробуйте ещё раз\n")
