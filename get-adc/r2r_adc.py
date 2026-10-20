@@ -22,10 +22,12 @@ class R2R_ADC:
 
     def sequential_counting_adc(self):
         i=0
-        while(GPIO.input(self.comp_gpio)==0 or i<256):
+        while(i<256):
             self.number_to_dac(i)
             i=i+1
             time.sleep(0.01)
+            if(GPIO.input(self.comp_gpio)==1):
+                return i/255*self.dynamic_range
         return i/255*self.dynamic_range
 
 
