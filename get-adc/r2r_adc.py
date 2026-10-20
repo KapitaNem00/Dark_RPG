@@ -30,6 +30,15 @@ class R2R_ADC:
             i=i+1
         return i/255*self.dynamic_range
 
+    def bin_adc(self):
+        i=0
+        while(i<256):
+            self.number_to_dac(i)
+            time.sleep(self.compare_time)
+            if(GPIO.input(self.comp_gpio)==1):
+                return i/255*self.dynamic_range
+            i=i+1
+        return i/255*self.dynamic_range        
 
     def deinit(self):
             GPIO.output(self.bits_gpio, 0)
