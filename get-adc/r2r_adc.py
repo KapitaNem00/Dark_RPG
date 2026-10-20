@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 import time
 
 class R2R_ADC:
-    def __init__(self, dynamic_range, compare_time = 0.01, verbose = False):
+    def __init__(self, dynamic_range, compare_time, verbose = False):
         self.dynamic_range = dynamic_range
         self.verbose = verbose
         self.compare_time = compare_time
@@ -25,7 +25,7 @@ class R2R_ADC:
         while(i<256):
             self.number_to_dac(i)
             i=i+1
-            time.sleep(0.01)
+            time.sleep(self.compare_time)
             if(GPIO.input(self.comp_gpio)==1):
                 return i/255*self.dynamic_range
         return i/255*self.dynamic_range
@@ -37,7 +37,7 @@ class R2R_ADC:
 
 if __name__ == "__main__":
     try:
-        adc = R2R_ADC(3.14, True)
+        adc = R2R_ADC(3.14, 0.01, True)
         
         while True:
             try:
