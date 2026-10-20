@@ -36,6 +36,7 @@ class R2R_ADC:
 if __name__ == "__main__":
     try:
         adc = R2R_ADC(3.14, True)
+        adc.number_to_dac(100)
         
         while True:
             try:
