@@ -14,7 +14,7 @@ class R2R_ADC:
         GPIO.setup(self.bits_gpio, GPIO.OUT, initial = 0)
         GPIO.setup(self.comp_gpio, GPIO.IN)
 
-    def dec2bin(value):
+    def dec2bin(self, value):
         return [int(element) for element in bin(value)[2:].zfill(8)]
 
     def number_to_dac(self, number):
