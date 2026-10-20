@@ -40,6 +40,7 @@ if __name__ == "__main__":
         while True:
             try:
                 print(adc.sequential_counting_adc(), "\n")
+                time.sleep(0.01)
 
             except ValueError:
                 print("Вы ввели не число. Попробуйте ещё раз\n")
