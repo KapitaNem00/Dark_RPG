@@ -9,7 +9,7 @@ def plot_voltage_vs_time(time, voltage, max_voltage):
 def plot_sampling_period_hist(time):
     plt.figure(figsize=(10,6))
     plt.hist(time, 40)
-    plt.xlim(0, 0.04)
+    plt.xlim(0, 0.005)
     plt.show()
 
 if __name__ == "__main__":
