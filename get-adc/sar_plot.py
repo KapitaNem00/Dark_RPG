@@ -9,7 +9,7 @@ def plot_voltage_vs_time(time, voltage, max_voltage):
 def plot_sampling_period_hist(time):
     plt.figure(figsize=(10,6))
     plt.hist(time)
-    plt.xlim(0, 0.06)
+    plt.xlim(0, 0.01)
     plt.show()
 
 if __name__ == "__main__":
@@ -33,4 +33,4 @@ if __name__ == "__main__":
                 print("Вы ввели не число. Попробуйте ещё раз\n")
 
     finally:
-        adcp.deinit()
+        sar.deinit()
