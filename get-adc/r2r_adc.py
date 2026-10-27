@@ -53,9 +53,8 @@ class R2R_ADC:
                 a=int(float((float(a+b))/2))
             else:
                 b=int(float((float(a+b))/2))
-            print(a, " ", b, "\n")
             c=c+1
-        return i
+        return i/255*self.dynamic_range
 
     def deinit(self):
             GPIO.output(self.bits_gpio, 0)
