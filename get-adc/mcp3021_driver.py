@@ -19,6 +19,8 @@ class MCP3021:
         if self.verbose:
             print(f"Принятые данные: {data}, Старший байт: {upper_data_byte:x}, Младший байт: {lower_data_byte:x}, Число: {number}")
         return number
+    def get_voltage(self):
+        return(self.get_number()/1024*self.dynamic_range)
 
     
         
@@ -30,7 +32,7 @@ if __name__ == "__main__":
     
         while True:
             try:
-                print(adc.get_number())
+                print(adc.get_voltage())
                 time.sleep(1)
             except ValueError:
                 print("ERROR")
