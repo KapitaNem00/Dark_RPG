@@ -9,7 +9,7 @@ if __name__ == "__main__":
         while True:
             try:
                 print(sar.bin_sar(), "\n")
-                time.sleep(1)
+                time.sleep(0.01)
 
             except ValueError:
                 print("Вы ввели не число. Попробуйте ещё раз\n")
