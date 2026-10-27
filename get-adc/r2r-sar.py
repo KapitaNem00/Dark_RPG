@@ -15,4 +15,4 @@ if __name__ == "__main__":
                 print("Вы ввели не число. Попробуйте ещё раз\n")
 
     finally:
-        adc.deinit()
+        sar.deinit()
