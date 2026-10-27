@@ -18,6 +18,7 @@ class MCP3021:
         number = (upper_data_byte << 6) | (lower_data_byte >> 2)
         if self.verbose:
             print(f"Принятые данные: {data}, Старший байт: {upper_data_byte:x}, Младший байт: {lower_data_byte:x}, Число: {number}")
+        time.sleep(0.01)
         return number
     def get_voltage(self):
         return(self.get_number()/1024*self.dynamic_range)
