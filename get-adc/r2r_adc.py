@@ -44,7 +44,8 @@ class R2R_ADC:
         i=0
         a=0
         b=255
-        while((a-b)>4):
+        c=0
+        while(c<10):
             i=int(float((float(a+b))/2))
             self.number_to_dac(i)
             time.sleep(self.compare_time)
@@ -52,6 +53,8 @@ class R2R_ADC:
                 a=int(float((float(a+b))/2))
             else:
                 b=int(float((float(a+b))/2))
+            print(a, " ", b, "\n")
+            c=c+1
         return i
 
     def deinit(self):
