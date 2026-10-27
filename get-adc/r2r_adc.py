@@ -45,13 +45,13 @@ class R2R_ADC:
         a=0
         b=255
         while((a-b)>4):
-            i=(a+b)/2
+            i=int(float((float(a+b))/2))
             self.number_to_dac(i)
             time.sleep(self.compare_time)
             if(GPIO.input(self.comp_gpio)==0):
-                a=(a+b)/2
+                a=int(float((float(a+b))/2))
             else:
-                b=(a+b)/2
+                b=int(float((float(a+b))/2))
         return i
 
     def deinit(self):
